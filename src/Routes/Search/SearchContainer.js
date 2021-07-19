@@ -7,17 +7,25 @@ export default class Search extends React.Component {
     tvShowResults: null,
     searchTerm: "",
     error: null,
-    loading: false
+    loading: false,
   };
 
- render (){
-  const { movieResults, tvShowResults, searchTerm, error, loading } = this.state;
-   return (<SearchPresenter 
-    movieResults = {movieResults}
-    tvShowResults = {tvShowResults}
-    searchTerm = {searchTerm}
-    error = {error}
-    loading = {loading}
-   />);
- }
+  render() {
+    const {
+      movieResults,
+      tvShowResults,
+      searchTerm,
+      error,
+      loading,
+    } = this.state;
+    return (
+      <SearchPresenter
+        movieResults={movieResults}
+        tvShowResults={tvShowResults}
+        searchTerm={searchTerm}
+        error={error}
+        loading={loading}
+      />
+    );
+  }
 }
