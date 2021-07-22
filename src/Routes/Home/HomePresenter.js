@@ -2,6 +2,7 @@ import react from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Section from "Components/Section";
+import Loader from "Components/Loader";
 
 const Container = styled.div`
   margin-top: 30px;
@@ -9,21 +10,21 @@ const Container = styled.div`
 `;
 
 const HomePresenter = ({ nowPlaying, upComing, popular, error, loading }) =>
-  loading ? null : (
+  loading ? <Loader></Loader> : (
     <Container>
       {nowPlaying && nowPlaying.length > 0 && (
         <Section title="Now Playing">
-          {nowPlaying.map((movie) => movie.title)}
+          {nowPlaying.map(movie => (<span key={movie.id}>{movie.title}</span>))}
         </Section>
       )}
       {upComing && upComing.length > 0 && (
         <Section title="Upcoming Movies">
-          {upComing.map((movie) => movie.title)}
+          {upComing.map(movie => (<span key={movie.id}>{movie.title}</span>))}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title="Popular Movies">
-          {nowPlaying.map((movie) => movie.title)}
+          {nowPlaying.map(movie => (<span key={movie.id}>{movie.title}</span>))}
         </Section>
       )}      
     </Container>

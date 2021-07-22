@@ -1,10 +1,33 @@
 import react from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Section from "Components/Section";
 
-const TVPresenter = ({
-  topRated, popular, airingToday, error, loading
-}) => null;
+const Container = styled.div`
+  margin-top: 30px;
+  padding: 0 10px;
+`;
+
+const TVPresenter = ({ topRated, popular, airingToday, error, loading }) =>
+  loading ? null : (
+    <Container>
+      {topRated && topRated.length > 0 && (
+        <Section title="Top Rated Movies">
+          {topRated.map((tv) => tv.name)}
+        </Section>
+      )}
+      {airingToday && airingToday.length > 0 && (
+        <Section title="Airing Today">
+          {airingToday.map((tv) => tv.name)}
+        </Section>
+      )}
+      {popular && popular.length > 0 && (
+        <Section title="Popular Movies">
+          {popular.map((tv) => tv.name)}
+        </Section>
+      )}
+    </Container>
+  );
 
 TVPresenter.prototype = {
   topRated: PropTypes.array,
