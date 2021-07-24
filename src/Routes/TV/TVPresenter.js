@@ -1,7 +1,8 @@
-import react from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Section from "Components/Section";
+import Loader from "Components/Loader";
 
 const Container = styled.div`
   margin-top: 30px;
@@ -9,21 +10,21 @@ const Container = styled.div`
 `;
 
 const TVPresenter = ({ topRated, popular, airingToday, error, loading }) =>
-  loading ? null : (
+  loading ? <Loader></Loader> : (
     <Container>
       {topRated && topRated.length > 0 && (
         <Section title="Top Rated Movies">
-          {topRated.map((tv) => tv.name)}
+          {topRated.map((tv) => (<span key={tv.id}>{tv.name}</span>))}
         </Section>
       )}
       {airingToday && airingToday.length > 0 && (
         <Section title="Airing Today">
-          {airingToday.map((tv) => tv.name)}
+          {airingToday.map((tv) => (<span key={tv.id}>{tv.name}</span>))}
         </Section>
       )}
       {popular && popular.length > 0 && (
         <Section title="Popular Movies">
-          {popular.map((tv) => tv.name)}
+          {popular.map((tv) => (<span key={tv.id}>{tv.name}</span>))}
         </Section>
       )}
     </Container>

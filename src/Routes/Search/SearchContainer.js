@@ -11,21 +11,27 @@ export default class Search extends React.Component {
     loading: false,
   };
 
-  componentDidMount() {
-    this.handleSubmit();
-  }
-
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm !== "") {
       this.searhByTerm();
     }
   };
 
+  updateTerm = (event) => {
+    const {
+      target: { value }
+    } = event;
+    this.setState({
+      searchTerm: value
+    })
+  };
+
   searhByTerm = async () => {
     const { searchTerm } = this.state;
     this.setState({
-      loading: true
+      loading: true,
     });
     try {
       const {
@@ -34,7 +40,7 @@ export default class Search extends React.Component {
       const {
         data: { results: tvShowResults },
       } = await tvApi.search(searchTerm);
-      this.setState({ 
+      this.setState({
         movieResults,
         tvShowResults
       });
@@ -61,6 +67,7 @@ export default class Search extends React.Component {
         error={error}
         loading={loading}
         handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
       />
     );
   }
