@@ -1,8 +1,9 @@
-import react from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Loader from "Components/Loader";
 import Section from "Components/Section";
+import Message from "Components/Message";
 
 const Container = styled.div`
   padding: 0 20px;
@@ -27,7 +28,7 @@ const SeachPresenter = ({
   handleSubmit,
   updateTerm,
   error,
-  loading
+  loading,
 }) => (
   <Container>
     <Form onSubmit={handleSubmit}>
@@ -55,6 +56,16 @@ const SeachPresenter = ({
             ))}
           </Section>
         )}
+        {error && <Message color="#c0392b" text={error} />}
+        {tvShowResults &&
+          movieResults &&
+          tvShowResults.length === 0 &&
+          movieResults.length === 0 && (
+            <Message
+              color="#7f8c8d"
+              text="Nothing found"
+            />
+          )}
       </>
     )}
   </Container>

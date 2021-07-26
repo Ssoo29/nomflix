@@ -44,7 +44,7 @@ export default class Search extends React.Component {
         movieResults,
         tvShowResults
       });
-    } catch (error) {
+    } catch (e) {
       this.setState({ error: "Can't find results" });
     } finally {
       this.setState({ loading: false });
