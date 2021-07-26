@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Loader from "Components/Loader";
 import Section from "Components/Section";
 import Message from "Components/Message";
+import Poster from "Components/Poster";
 
 const Container = styled.div`
   padding: 0 20px;
@@ -45,14 +46,30 @@ const SeachPresenter = ({
         {movieResults && movieResults.length > 0 && (
           <Section title="Movie Results">
             {movieResults.map((movie) => (
-              <span key={movie.id}>{movie.title}</span>
+              <Poster
+                key={movie.id}
+                id={movie.id}
+                title={movie.original_title}
+                imageUrl={movie.poster_path}
+                rating={movie.vote_average}
+                isMovie={true}
+                year={movie.release_date && movie.release_date.substring(0, 4)}
+              ></Poster>
             ))}
           </Section>
         )}
         {tvShowResults && tvShowResults.length > 0 && (
           <Section title="TV Show Results">
             {tvShowResults.map((show) => (
-              <span key={show.id}>{show.name}</span>
+              <Poster
+                key={show.id}
+                id={show.id}
+                title={show.original_title}
+                imageUrl={show.poster_path}
+                rating={show.vote_average}
+                isMovie={true}
+                year={show.release_date && show.release_date.substring(0, 4)}
+              ></Poster>
             ))}
           </Section>
         )}
@@ -61,10 +78,7 @@ const SeachPresenter = ({
           movieResults &&
           tvShowResults.length === 0 &&
           movieResults.length === 0 && (
-            <Message
-              color="#7f8c8d"
-              text="Nothing found"
-            />
+            <Message color="#7f8c8d" text="Nothing found" />
           )}
       </>
     )}
