@@ -64,11 +64,11 @@ const SeachPresenter = ({
               <Poster
                 key={show.id}
                 id={show.id}
-                title={show.original_title}
+                title={show.original_name}
                 imageUrl={show.poster_path}
                 rating={show.vote_average}
                 isMovie={true}
-                year={show.release_date && show.release_date.substring(0, 4)}
+                year={show.first_air_date && show.first_air_date.substring(0, 4)}
               ></Poster>
             ))}
           </Section>
