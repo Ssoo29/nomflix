@@ -8,7 +8,7 @@ import Poster from "Components/Poster";
 
 const Container = styled.div`
   margin-top: 30px;
-  padding: 0px 10px;
+  padding: 20px;
 `;
 
 const HomePresenter = ({ nowPlaying, upComing, popular, error, loading }) =>
