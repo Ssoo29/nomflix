@@ -12,7 +12,7 @@ export default class Detail extends React.Component {
       result: null,
       error: null,
       loading: true,
-      isMovie: pathname.includes("/movie/"),
+      isMovie: pathname.includes("/movie/")
     };
   }
 
@@ -34,7 +34,7 @@ export default class Detail extends React.Component {
       if (isMovie) {
         ({ data: result } = await moviesApi.movieDetail(paresedId));
       } else {
-        ({data: result } = await tvApi.tvShowDetail(paresedId));
+        ({ data: result } = await tvApi.tvShowDetail(paresedId));
       }
     } catch (error) {
       this.setState({ error: `Can't find ${isMovie ? "movie" : "TV shows"}` });

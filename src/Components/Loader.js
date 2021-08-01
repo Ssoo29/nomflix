@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Loader from "react-loader-spinner";
 
 const Container = styled.div`
   height: 100vh;
@@ -10,10 +11,10 @@ const Container = styled.div`
   font-size: 32px;
 `;
 
+const Spinner = styled(Loader)``;
+
 export default () => (
   <Container>
-    <span role="img" aria-label="Loading">
-      ⏰
-    </span>
+    <Spinner type="Oval" color="#3498db"></Spinner>
   </Container>
 );

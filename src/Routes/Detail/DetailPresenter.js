@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+
 import styled from "styled-components";
 import Loader from "Components/Loader";
 
@@ -70,11 +72,25 @@ const Overview = styled.p`
 
 const DetailPresenter = ({ result, error, loading }) =>
   loading ? (
-    <Loader />
+    <>
+      <Loader />
+      <Helmet>
+        <title>Loading</title>
+      </Helmet>
+    </>
   ) : (
     <Container>
+      <Helmet>
+        <title>{result.original_title
+              ? result.original_title
+              : result.original_name} | Nomflix</title>
+      </Helmet>
       <Backdrop
-        bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+        bgImage={
+          result.backdrop_path
+            ? `https://image.tmdb.org/t/p/original${result.backdrop_path}`
+            : require("../../assets/noPoster.PNG")
+        }
       />
       <Content>
         <Cover
@@ -91,24 +107,24 @@ const DetailPresenter = ({ result, error, loading }) =>
               : result.original_name}
           </Title>
           <ItemContainer>
-            <item>
+            <Item>
               {result.release_date
                 ? result.release_date.substring(0, 4)
                 : result.first_air_date.substring(0, 4)}
-            </item>
+            </Item>
             <Divider>•</Divider>
-            <item>
+            <Item>
               {result.runtime ? result.runtime : result.episode_run_time[0]} min
-            </item>
+            </Item>
             <Divider>•</Divider>
-            <item>
+            <Item>
               {result.genres &&
                 result.genres.map((genre, index) =>
                   index === result.genres.length - 1
                     ? genre.name
                     : `${genre.name}/ `
                 )}
-            </item>
+            </Item>
             <Divider>•</Divider>
           </ItemContainer>
           <Overview>{result.overview}</Overview>
@@ -117,7 +133,7 @@ const DetailPresenter = ({ result, error, loading }) =>
     </Container>
   );
 
-DetailPresenter.propTypes = {
+DetailPresenter.prototype = {
   result: PropTypes.object,
   error: PropTypes.string,
   loading: PropTypes.bool.isRequired,
