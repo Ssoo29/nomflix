@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Loader from "react-loader-spinner";
+import ReactLoader from "react-loader-spinner";
 
 const Container = styled.div`
   height: 100vh;
@@ -11,10 +11,12 @@ const Container = styled.div`
   font-size: 32px;
 `;
 
-const Spinner = styled(Loader)``;
+const Spinner = styled(ReactLoader)``;
 
-export default () => (
+const Loader = () => (
   <Container>
     <Spinner type="Oval" color="#3498db"></Spinner>
   </Container>
 );
+
+export default Loader;
