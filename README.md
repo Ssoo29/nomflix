@@ -1,4 +1,7 @@
-# Noblfix
+# Nomlfix
+
+## Preview
+Try it on[netlify][https://priceless-kowalevski-9f3eca.netlify.app/#/]
 
 # Screens
 
@@ -26,3 +29,4 @@
 - [] Collections Link
 - [] /collections Route
 - [] On TV Show, show seasons and creators
+
