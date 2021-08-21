@@ -18,7 +18,7 @@ const Message = ({text, color}) => (
   </Container>
 );
 
-Message.prototype = {
+Message.propTypes = {
   text: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired
 }

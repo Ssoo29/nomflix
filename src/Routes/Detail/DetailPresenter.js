@@ -133,7 +133,7 @@ const DetailPresenter = ({ result, error, loading }) =>
     </Container>
   );
 
-DetailPresenter.prototype = {
+DetailPresenter.propTypes = {
   result: PropTypes.object,
   error: PropTypes.string,
   loading: PropTypes.bool.isRequired,

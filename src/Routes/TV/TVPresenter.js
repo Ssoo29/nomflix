@@ -70,7 +70,7 @@ const TVPresenter = ({ topRated, popular, airingToday, error, loading }) => (
   </>
 );
 
-TVPresenter.prototype = {
+TVPresenter.propTypes = {
   topRated: PropTypes.array,
   popular: PropTypes.array,
   airingToday: PropTypes.array,

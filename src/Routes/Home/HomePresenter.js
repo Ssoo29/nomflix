@@ -73,7 +73,7 @@ const HomePresenter = ({ nowPlaying, upComing, popular, error, loading }) => (
   </>
 );
 
-HomePresenter.prototype = {
+HomePresenter.propTypes = {
   nowPlaying: PropTypes.array,
   upComing: PropTypes.array,
   popular: PropTypes.array,

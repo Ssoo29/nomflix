@@ -95,7 +95,7 @@ const SeachPresenter = ({
   </Container>
 );
 
-SeachPresenter.prototype = {
+SeachPresenter.propTypes = {
   movieResults: PropTypes.array,
   tvShowResults: PropTypes.array,
   searchTerm: PropTypes.string,

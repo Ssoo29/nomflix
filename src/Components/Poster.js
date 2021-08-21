@@ -74,7 +74,7 @@ const Poster = ({ imageUrl, title, id, rating, year, isMovie = false }) => (
   </Link>
 );
 
-Poster.prototype = {
+Poster.propTypes = {
   id: PropTypes.number.isRequired,
   imageUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
