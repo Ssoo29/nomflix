@@ -1,5 +1,7 @@
 # Nomlfix
 
+Class형 컴포넌트
+
 ## Preview
 Try it on[netlify][https://priceless-kowalevski-9f3eca.netlify.app/#/]
 
